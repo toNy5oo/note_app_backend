@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>dev.bozzaciro</groupId>
-	<artifactId>content-calendar</artifactId>
+	<artifactId>note_pp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>content-calendar</name>
-	<description>Content Calendar</description>
+	<name>NoteAppBackend</name>
+	<description>API for a note app</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
