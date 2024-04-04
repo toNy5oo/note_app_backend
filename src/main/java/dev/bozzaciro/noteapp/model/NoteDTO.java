@@ -23,5 +23,7 @@ public class NoteDTO {
 
     private String description;
 
+    private String color;
+
     private Date createdAt;
 }
