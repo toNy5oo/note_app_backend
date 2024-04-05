@@ -69,5 +69,30 @@ public class NotesController {
         else return new ResponseEntity<>(Request.NOT_FOUND, HttpStatus.NOT_FOUND);
     }
 
+    @PutMapping("/note/update")
+    public ResponseEntity<?> updateNote(@RequestBody NoteDTO note){
+        try{
+            notesRepository.save(note);
+            return new ResponseEntity<NoteDTO>(note, HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/note/togglePin/{id}")
+    public ResponseEntity<?> togglePin(@PathVariable("id") String id){
+        Optional<NoteDTO> optionalNote = notesRepository.findById(id);
+        if (optionalNote.isPresent()) {
+            NoteDTO note = optionalNote.get();
+            try {
+                note.setPinned(!note.isPinned());
+                notesRepository.save(note);
+                return new ResponseEntity<>(Request.SUCCESS, HttpStatus.OK);
+            } catch (Exception e) {
+                return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            }
+        }
+        else return new ResponseEntity<>(Request.NOT_FOUND, HttpStatus.NOT_FOUND);
+    }
 
 }
