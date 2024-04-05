@@ -25,5 +25,7 @@ public class NoteDTO {
 
     private String color;
 
+    private boolean isPinned;
+
     private Date createdAt;
 }
