@@ -28,4 +28,6 @@ public class NoteDTO {
     private boolean isPinned;
 
     private Date createdAt;
+
+    private Date updatedAt;
 }
